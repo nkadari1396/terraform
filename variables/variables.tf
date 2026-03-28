@@ -6,7 +6,7 @@ variable "ami_id" {
 
 
 variable "instance_type" {
-    default = "instance_type"
+    default = "t3.micro"
     type = string
     description = " instance type of devops-practice"
 }
