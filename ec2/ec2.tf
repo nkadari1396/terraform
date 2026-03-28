@@ -4,7 +4,7 @@ resource "aws_instance" "terraform" {
   vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
 
   tags = {
-    Name = "terraform"
+    Name = "ec2_instance"
   }
 }
 
@@ -33,6 +33,6 @@ resource "aws_security_group" "allow_ssh_terraform" {
   
 
   tags = {
-    Name = "allow_sshh"
+    Name = "allow_terraform"
   }
 }
