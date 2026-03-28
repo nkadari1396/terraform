@@ -42,7 +42,7 @@ variable "to_port" {
 }
 
 variable "protocol" {
-    default = tcp
+    default = "tcp"
     type = string
     description = " tcp protocol"
 }
