@@ -11,7 +11,7 @@ variable "domain_name" {
     default = "naveenkadari.com"
 }
 
-variable "Zone_id" {
+variable "zone_id" {
     default = "Z05521101U68XI4NW84J2"
 }
     
