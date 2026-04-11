@@ -21,10 +21,12 @@ resource "aws_instance" "expense" {
     
     # provisioners will execute at the time of creation
     provisioner "remote-exec" {
-        inline = [
+        inline =  each.key == "frontend" ? [
             "sudo dnf install ansible -y",
             "sudo dnf install nginx -y",
             "sudo systemctl start nginx",
+        ] : [
+            "echo 'Not frontend, skipping nginx'"
         ]
     }
 
@@ -57,6 +59,19 @@ resource "aws_security_group" "allow_ssh_terraform" {
             cidr_blocks = ["0.0.0.0/0"] #allow from everyone
             ipv6_cidr_blocks = ["::/0"]
         }
+
+        ingress {
+            from_port = 80
+            to_port = 80
+            protocol = "tcp"
+            cidr_blocks = ["0.0.0.0/0"] #allow from everyone
+            ipv6_cidr_blocks = ["::/0"]
+        }
+
+        
+
+
+        
 
         tags = {
             Name = "allow_sshh"
