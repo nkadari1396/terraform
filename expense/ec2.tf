@@ -1,8 +1,8 @@
-resource "aws_instance" "terraform" {
+resource "aws_instance" "expense" {
   count = length(var.instance_names)
   ami           = "ami-0220d79f3f480ecf5"
   instance_type = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
+  vpc_security_group_ids = [aws_security_group.allow_sshh_terraform.id]
 
   tags = merge(
     var.common_tags,
@@ -16,7 +16,7 @@ resource "aws_instance" "terraform" {
 
 
 
-resource "aws_security_group" "allow_ssh_terraform" {
+resource "aws_security_group" "allow_sshh_terraform" {
   name        = "allow_sshh"
   description = "Allow port number 22 for ssh access"
 
