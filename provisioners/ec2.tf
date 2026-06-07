@@ -24,7 +24,7 @@ resource "aws_instance" "expense" {
         inline =  each.key == "frontend" ? [
             "sudo dnf install ansible -y",
             "sudo dnf install nginx -y",
-            "echo '<h1>Naveen DevOps 🚀</h1>' | sudo tee /usr/share/nginx/html/index.html"
+            "echo '<h1>Naveen DevOps </h1>' | sudo tee /usr/share/nginx/html/index.html",
             "sudo systemctl start nginx",
         ] : [
             "echo 'Not frontend, skipping nginx'"
